@@ -1,7 +1,8 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
-use Slim\Factory\AppFactory;
+namespace Tests\Integrations;
+
+use Tests\TestCase;
 use Slim\Psr7\Factory\ServerRequestFactory;
 
 class HelloTest extends TestCase
@@ -9,13 +10,9 @@ class HelloTest extends TestCase
     /** @test */
     public function it_says_hello()
     {
-        $app = AppFactory::create();
-
-        require 'src/app.php';
-
         $factory = new ServerRequestFactory();
 
-        $response = $app->handle($factory->createServerRequest('GET', '/'));
+        $response = $this->app->handle($factory->createServerRequest('GET', '/'));
 
         $this->assertEquals($response->getStatusCode(), 200);
 

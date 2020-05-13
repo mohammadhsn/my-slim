@@ -9,5 +9,10 @@
     "scripts": {
         "phpunit": "./vendor/bin/phpunit",
         "test": "@phpunit tests"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     }
 }
