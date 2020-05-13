@@ -3,7 +3,9 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
+use Psr\Http\Message\ResponseInterface;
 use Slim\Factory\AppFactory;
+use Slim\Psr7\Factory\ServerRequestFactory;
 use Slim\App;
 
 abstract class TestCase extends PHPUnitTestCase
@@ -18,10 +20,16 @@ abstract class TestCase extends PHPUnitTestCase
         $this->app = $this->createApp();
     }
 
-    public function createApp()
+    protected function createApp(): App
     {
         $app = AppFactory::create();
         require 'src/app.php';
         return $app;
+    }
+
+    protected function request($method, $uri): ResponseInterface
+    {
+        $factory = new ServerRequestFactory();
+        return $this->app->handle($factory->createServerRequest($method, $uri));
     }
 }
