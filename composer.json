@@ -5,5 +5,9 @@
     },
     "require-dev": {
         "phpunit/phpunit": "9.*"
+    },
+    "scripts": {
+        "phpunit": "./vendor/bin/phpunit",
+        "test": "@phpunit tests"
     }
 }
