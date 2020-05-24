@@ -15,12 +15,14 @@ $app = AppFactory::create();
 
 require 'dependencies.php';
 
+$settings = $container->get('settings');
+
 $app->addRoutingMiddleware();
 $app->addErrorMiddleware(
     $settings['app']['debug'],
     $settings['logging']['enable'],
     $settings['logging']['detail'],
-    $log
+    $container->get('logger')
 );
 
 return $app;
