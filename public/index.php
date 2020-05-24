@@ -10,6 +10,8 @@ $container = new Container();
 AppFactory::setContainer($container);
 $app = AppFactory::create();
 
+$app->addRoutingMiddleware();
+
 require '../src/app.php';
 
 $app->run();
