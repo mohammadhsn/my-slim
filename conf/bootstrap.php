@@ -10,10 +10,10 @@ require "$BASE_PATH/vendor/autoload.php";
 $container = new Container();
 $container->add('path', $BASE_PATH);
 
-require 'dependencies.php';
-
 AppFactory::setContainer($container);
 $app = AppFactory::create();
+
+require 'dependencies.php';
 
 $app->addRoutingMiddleware();
 $app->addErrorMiddleware(
