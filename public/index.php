@@ -5,14 +5,16 @@ use League\Container\Container;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
-require '../vendor/autoload.php';
+$BASE_PATH = dirname(dirname(__FILE__));
 
-$settings = require '../src/settings.php';
+require "$BASE_PATH/vendor/autoload.php";
+
+$settings = require "$BASE_PATH/src/settings.php";
 
 $container = new Container();
 
 $log = new Logger($settings['app']['name']);
-$log->pushHandler(new StreamHandler("../{$settings['logging']['filename']}"));
+$log->pushHandler(new StreamHandler("$BASE_PATH/{$settings['logging']['filename']}"));
 
 AppFactory::setContainer($container);
 $app = AppFactory::create();
@@ -25,6 +27,6 @@ $app->addErrorMiddleware(
     $log
 );
 
-require '../src/app.php';
+require "$BASE_PATH/src/app.php";
 
 $app->run();
