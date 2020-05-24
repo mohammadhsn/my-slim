@@ -1,0 +1,18 @@
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+
+class $className extends $baseClassName
+{
+
+    public function up()
+    {
+        //
+    }
+
+    public function down()
+    {
+        //
+    }
+
+}
