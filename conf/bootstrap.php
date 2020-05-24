@@ -8,15 +8,16 @@ use Monolog\Handler\StreamHandler;
 
 
 $BASE_PATH = dirname(dirname(__FILE__));
-
 require "$BASE_PATH/vendor/autoload.php";
+
+$container = new Container();
+$container->add('path', $BASE_PATH);
+
 
 $env = DotEnv::createImmutable($BASE_PATH);
 $env->load();
 
 $settings = require "$BASE_PATH/src/settings.php";
-
-$container = new Container();
 
 $log = new Logger($settings['app']['name']);
 $log->pushHandler(new StreamHandler("$BASE_PATH/{$settings['logging']['filename']}"));
