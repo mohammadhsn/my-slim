@@ -11,6 +11,7 @@ AppFactory::setContainer($container);
 $app = AppFactory::create();
 
 $app->addRoutingMiddleware();
+$app->addErrorMiddleware(true, false, false);
 
 require '../src/app.php';
 
