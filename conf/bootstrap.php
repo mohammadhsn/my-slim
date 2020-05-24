@@ -1,10 +1,7 @@
 <?php
 
-use Dotenv\Dotenv;
 use Slim\Factory\AppFactory;
 use League\Container\Container;
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
 
 
 $BASE_PATH = dirname(dirname(__FILE__));
@@ -13,14 +10,7 @@ require "$BASE_PATH/vendor/autoload.php";
 $container = new Container();
 $container->add('path', $BASE_PATH);
 
-
-$env = DotEnv::createImmutable($BASE_PATH);
-$env->load();
-
-$settings = require "$BASE_PATH/src/settings.php";
-
-$log = new Logger($settings['app']['name']);
-$log->pushHandler(new StreamHandler("$BASE_PATH/{$settings['logging']['filename']}"));
+require 'dependencies.php';
 
 AppFactory::setContainer($container);
 $app = AppFactory::create();
