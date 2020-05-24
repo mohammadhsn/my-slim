@@ -14,8 +14,11 @@
     },
     "scripts": {
         "phpunit": "./vendor/bin/phpunit",
+        "phinx": "./vendor/bin/phinx",
         "test": "@phpunit tests",
-        "migrate": "./vendor/bin/phinx migrate"
+        "migrate": "@phinx migrate",
+        "makemigration": "@phinx create",
+        "rollbackdb": "@phinx rollback -t 0 -f"
     },
     "autoload": {
         "psr-4": {
