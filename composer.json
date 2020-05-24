@@ -13,7 +13,8 @@
     },
     "scripts": {
         "phpunit": "./vendor/bin/phpunit",
-        "test": "@phpunit tests"
+        "test": "@phpunit tests",
+        "migrate": "./vendor/bin/phinx migrate"
     },
     "autoload": {
         "psr-4": {
