@@ -39,9 +39,13 @@ abstract class TestCase extends PHPUnitTestCase
         return $app;
     }
 
-    protected function request($method, $uri): ResponseInterface
+    protected function request($method, $uri, $data = null): ResponseInterface
     {
         $factory = new ServerRequestFactory();
-        return $this->app->handle($factory->createServerRequest($method, $uri));
+        $request = $factory->createServerRequest($method, $uri);
+        if ($data) {
+            $request = $request->withParsedBody($data);
+        }
+        return $this->app->handle($request);
     }
 }
