@@ -2,12 +2,12 @@
 
 return [
     'app' => [
-        'name'  => 'my-slim',
-        'debug' => true
+        'name'  => app_env('APP_NAME', 'my-slim'),
+        'debug' => app_env('APP_DEBUG', true)
     ],
     'logging' => [
-        'enable' => true,
-        'detail' => true,
+        'enable' => app_env('LOG_ENABLE', false),
+        'detail' => app_env('LOG_DETAIL', false),
         'filename' => 'app.log'
     ]
 ];

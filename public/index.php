@@ -1,5 +1,6 @@
 <?php
 
+use Dotenv\Dotenv;
 use Slim\Factory\AppFactory;
 use League\Container\Container;
 use Monolog\Logger;
@@ -8,6 +9,9 @@ use Monolog\Handler\StreamHandler;
 $BASE_PATH = dirname(dirname(__FILE__));
 
 require "$BASE_PATH/vendor/autoload.php";
+
+$env = DotEnv::createImmutable($BASE_PATH);
+$env->load();
 
 $settings = require "$BASE_PATH/src/settings.php";
 
