@@ -17,6 +17,19 @@ abstract class TestCase extends PHPUnitTestCase
     protected function setUp(): void
     {
         $this->app = $this->createApp();
+
+        if (in_array(InteractsWithDB::class, array_keys(class_uses_recursive(static::class)))) {
+            $this->migrate();
+        }
+    }
+
+    protected function tearDown(): void
+    {
+        parent::tearDown();
+
+        if (in_array(InteractsWithDB::class, array_keys(class_uses_recursive(static::class)))) {
+            $this->rollback();
+        }
     }
 
     protected function createApp(): App
