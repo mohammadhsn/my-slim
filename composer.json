@@ -15,6 +15,7 @@
     "scripts": {
         "phpunit": "./vendor/bin/phpunit",
         "phinx": "./vendor/bin/phinx",
+        "clean": "./vendor/bin/php-cs-fixer fix",
         "test": "@phpunit tests",
         "migrate": "@phinx migrate",
         "makemigration": "@phinx create",

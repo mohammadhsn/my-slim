@@ -458,3 +458,4 @@ composer.lock
 *.scss.map
 
 .env
+.php_cs.cache
