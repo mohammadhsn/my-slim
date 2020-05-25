@@ -20,7 +20,7 @@ class SettingsServiceProvider extends AbstractServiceProvider implements Bootabl
         $path = str_replace(
             '/',
             DIRECTORY_SEPARATOR,
-            sprintf("%s/conf/settings.php", $this->container->get('path'))
+            sprintf('%s/conf/settings.php', $this->container->get('path'))
         );
         $this->container->add('settings', require $path);
     }
@@ -32,11 +32,10 @@ class SettingsServiceProvider extends AbstractServiceProvider implements Bootabl
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function register()
     {
         //
     }
-
 }

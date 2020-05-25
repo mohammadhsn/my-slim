@@ -22,5 +22,4 @@ function app_env($key, $default = null)
     }
 
     return $result;
-
 }

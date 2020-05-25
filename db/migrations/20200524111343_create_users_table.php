@@ -4,7 +4,6 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateUsersTable extends Migration
 {
-
     public function up()
     {
         $this->schema->create('users', function (Blueprint $table) {
@@ -18,5 +17,4 @@ class CreateUsersTable extends Migration
     {
         $this->schema->drop('users');
     }
-
 }

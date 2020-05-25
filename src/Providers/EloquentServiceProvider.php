@@ -6,11 +6,10 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\Container\ServiceProvider\BootableServiceProviderInterface;
 
-
 class EloquentServiceProvider extends AbstractServiceProvider implements BootableServiceProviderInterface
 {
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function boot()
     {
@@ -21,10 +20,9 @@ class EloquentServiceProvider extends AbstractServiceProvider implements Bootabl
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function register()
     {
-
     }
 }

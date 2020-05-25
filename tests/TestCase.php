@@ -4,8 +4,8 @@ namespace Tests;
 
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 use Psr\Http\Message\ResponseInterface;
-use Slim\Psr7\Factory\ServerRequestFactory;
 use Slim\App;
+use Slim\Psr7\Factory\ServerRequestFactory;
 
 abstract class TestCase extends PHPUnitTestCase
 {
@@ -36,6 +36,7 @@ abstract class TestCase extends PHPUnitTestCase
     {
         $app =  require 'conf/bootstrap.php';
         require 'src/app.php';
+
         return $app;
     }
 
@@ -46,6 +47,7 @@ abstract class TestCase extends PHPUnitTestCase
         if ($data) {
             $request = $request->withParsedBody($data);
         }
+
         return $this->app->handle($request);
     }
 }

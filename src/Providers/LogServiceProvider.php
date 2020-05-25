@@ -3,17 +3,17 @@
 
 namespace App\Providers;
 
+use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\Container\ServiceProvider\BootableServiceProviderInterface;
-use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
-use League\Container\ServiceProvider\AbstractServiceProvider;
+use Monolog\Logger;
 
 class LogServiceProvider extends AbstractServiceProvider implements BootableServiceProviderInterface
 {
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function boot()
     {
@@ -29,7 +29,7 @@ class LogServiceProvider extends AbstractServiceProvider implements BootableServ
     protected function path(array $settings): string
     {
         return sprintf(
-            "%s%s%s",
+            '%s%s%s',
             $this->container->get('path'),
             DIRECTORY_SEPARATOR,
             $settings['logging']['filename']
@@ -38,7 +38,5 @@ class LogServiceProvider extends AbstractServiceProvider implements BootableServ
 
     public function register()
     {
-
     }
-
 }

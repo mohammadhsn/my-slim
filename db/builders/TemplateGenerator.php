@@ -7,18 +7,17 @@ class TemplateGenerator extends AbstractTemplateCreation
 {
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getMigrationTemplate()
     {
-        return file_get_contents(dirname(__FILE__) . '/defaultTemplate.dist');
+        return file_get_contents(dirname(__FILE__).'/defaultTemplate.dist');
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function postMigrationCreation($migrationFilename, $className, $baseClassName)
     {
-
     }
 }

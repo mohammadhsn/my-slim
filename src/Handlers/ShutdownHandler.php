@@ -3,7 +3,6 @@
 
 namespace App\Handlers;
 
-
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Exception\HttpInternalServerErrorException;
 use Slim\Handlers\ErrorHandler;
@@ -40,7 +39,8 @@ class ShutdownHandler
      * @param bool $logErrors
      * @param bool $logErrorDetails
      */
-    public function __construct(ServerRequestInterface $request, ErrorHandler $errorHandler, bool $displayErrorDetails, bool $logErrors, bool $logErrorDetails) {
+    public function __construct(ServerRequestInterface $request, ErrorHandler $errorHandler, bool $displayErrorDetails, bool $logErrors, bool $logErrorDetails)
+    {
         $this->request = $request;
         $this->errorHandler = $errorHandler;
         $this->displayErrorDetails = $displayErrorDetails;
@@ -63,19 +63,23 @@ class ShutdownHandler
                     case E_USER_ERROR:
                         $message = "FATAL ERROR: {$errorMessage}. ";
                         $message .= " on line {$errorLine} in file {$errorFile}.";
+
                         break;
 
                     case E_USER_WARNING:
                         $message = "WARNING: {$errorMessage}";
+
                         break;
 
                     case E_USER_NOTICE:
                         $message = "NOTICE: {$errorMessage}";
+
                         break;
 
                     default:
                         $message = "ERROR: {$errorMessage}";
                         $message .= " on line {$errorLine} in file {$errorFile}.";
+
                         break;
                 }
             }

@@ -2,6 +2,6 @@
 
 use App\Controllers\HomeController;
 
-/** @var Slim\App $app */
+/* @var Slim\App $app */
 
-$app->get('/', HomeController::class . ':home');
+$app->get('/', HomeController::class.':home');
