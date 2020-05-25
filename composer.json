@@ -19,7 +19,8 @@
         "test": "@phpunit tests",
         "migrate": "@phinx migrate",
         "makemigration": "@phinx create",
-        "rollbackdb": "@phinx rollback -t 0 -f"
+        "rollbackdb": "@phinx rollback -t 0 -f",
+        "up": "@php -S localhost:8000 -t public"
     },
     "autoload": {
         "psr-4": {
